@@ -1,0 +1,17 @@
+Login
+Cadastro Usuarios
+Papeis de acesso
+Cadastro de clientes 
+Cadastr de Produtos 
+Produtos/Estoque 
+Entradas / Saidas
+Requisições
+Locações
+Vendas
+Etiquetas
+Contas a pagar
+contas a receber
+Caixa / Banco
+Metas
+
+
