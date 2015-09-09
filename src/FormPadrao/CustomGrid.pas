@@ -26,6 +26,7 @@ type
     DataSource1: TDataSource;
     procedure BtnIncluirClick(Sender: TObject);
     procedure BtnAlterarClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
   private
     { Private declarations }
     FFormEditor: FrmCustomEditorClass;
@@ -48,11 +49,20 @@ var F : TFrmCustomEditor;
 begin
   F := FormEditor.Create(Self);
   try
-//  F.FDQuery1.Edit;
+    F.FDQuery1.ParamByName('codigo').AsInteger := FDQuery1.FieldByName('codigo').AsInteger;
+    F.FDQuery1.Open;
+    F.FDQuery1.Edit;
     F.ShowModal;
   finally
     F.Free;
+    FDQuery1.Refresh;
   end;
+end;
+
+procedure TFrmCustomGrid.BtnExcluirClick(Sender: TObject);
+begin
+  if Application.MessageBox('Deseja realmente excluir o item selecionado?','Confirma',36)=idyes then
+    FDQuery1.Delete;
 end;
 
 procedure TFrmCustomGrid.BtnIncluirClick(Sender: TObject);
@@ -60,10 +70,12 @@ var F : TFrmCustomEditor;
 begin
   F := FormEditor.Create(Self);
   try
-//  F.FDQuery1.Insert;
+    F.FDQuery1.Open;
+    F.FDQuery1.Insert;
     F.ShowModal;
   finally
     F.Free;
+    FDQuery1.Refresh;
   end;
 end;
 

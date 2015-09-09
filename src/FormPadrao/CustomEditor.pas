@@ -20,6 +20,7 @@ type
     FDTransaction1: TFDTransaction;
     procedure BtnOkClick(Sender: TObject);
     procedure BtnCalcelClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,6 +46,12 @@ end;
 procedure TFrmCustomEditor.BtnOkClick(Sender: TObject);
 begin
   FDQuery1.Post;
+  Close;
+end;
+
+procedure TFrmCustomEditor.FormShow(Sender: TObject);
+begin
+//  FDQuery1.Open;
 end;
 
 end.

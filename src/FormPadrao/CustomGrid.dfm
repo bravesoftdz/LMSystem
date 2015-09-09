@@ -65,6 +65,7 @@ object FrmCustomGrid: TFrmCustomGrid
         Width = 115
         Height = 41
         Caption = 'E&xcluir'
+        OnClick = BtnExcluirClick
       end
       object BtnImprimir: TSpeedButton
         Left = 366

@@ -32,6 +32,7 @@ procedure TFrmCadastroClientesGrid.FormCreate(Sender: TObject);
 begin
   inherited;
   FormEditor := TFrmCadastroClientesEditor;
+  FDQuery1.Open;
 end;
 
 end.
