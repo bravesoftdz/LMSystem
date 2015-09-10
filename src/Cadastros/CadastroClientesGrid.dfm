@@ -14,12 +14,13 @@ inherited FrmCadastroClientesGrid: TFrmCadastroClientesGrid
   end
   inherited Panel2: TPanel
     Width = 956
+    ExplicitWidth = 956
     inherited PnlControl: TPanel
       Left = 464
+      ExplicitLeft = 464
     end
   end
   inherited FDQuery1: TFDQuery
-    Active = True
     SQL.Strings = (
       'select * from clifor')
   end

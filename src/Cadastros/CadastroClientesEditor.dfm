@@ -1,9 +1,9 @@
 inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
   Caption = 'FrmCadastroClientesEditor'
-  ClientHeight = 378
-  ClientWidth = 615
-  ExplicitWidth = 631
-  ExplicitHeight = 413
+  ClientHeight = 403
+  ClientWidth = 606
+  ExplicitWidth = 622
+  ExplicitHeight = 438
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -97,54 +97,55 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     Height = 13
     Caption = 'Rg:'
   end
+  object SpeedButton1: TSpeedButton [13]
+    Left = 40
+    Top = 373
+    Width = 23
+    Height = 22
+  end
   inherited Panel2: TPanel
-    Width = 615
+    Width = 606
+    TabOrder = 11
+    ExplicitWidth = 615
     inherited PnlControl: TPanel
-      Left = 365
+      Left = 356
+      ExplicitLeft = 365
     end
   end
-  object DBCodigo: TDBEdit [14]
-    Left = 80
+  object DBCodigo: TDBEdit [15]
+    Left = 78
     Top = 88
     Width = 97
     Height = 21
     Cursor = crNo
     DataField = 'CODIGO'
     DataSource = DataSource1
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 12
   end
-  object DBEmail: TDBEdit [15]
+  object DBEmail: TDBEdit [16]
     Left = 80
     Top = 220
     Width = 513
     Height = 21
     DataField = 'EMAIL'
     DataSource = DataSource1
-    TabOrder = 2
+    TabOrder = 4
   end
-  object DBComplemento: TDBEdit [16]
+  object DBComplemento: TDBEdit [17]
     Left = 472
     Top = 286
     Width = 121
     Height = 21
     DataField = 'COMPLEMENTO'
     DataSource = DataSource1
-    TabOrder = 3
-  end
-  object DBCnpj: TDBEdit [17]
-    Left = 80
-    Top = 156
-    Width = 193
-    Height = 21
-    DataField = 'CNPJ'
-    DataSource = DataSource1
-    TabOrder = 4
+    TabOrder = 8
   end
   object DBNome: TDBEdit [18]
     Left = 80
@@ -153,95 +154,105 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     Height = 21
     DataField = 'RAZAO'
     DataSource = DataSource1
-    TabOrder = 5
+    TabOrder = 1
   end
-  object DBCelular: TDBEdit [19]
-    Left = 80
-    Top = 187
-    Width = 121
-    Height = 21
-    DataField = 'CELULAR'
-    DataSource = DataSource1
-    TabOrder = 6
-  end
-  object DBRg: TDBEdit [20]
+  object DBRg: TDBEdit [19]
     Left = 408
     Top = 156
     Width = 185
     Height = 21
     DataField = 'RG'
     DataSource = DataSource1
-    TabOrder = 7
+    TabOrder = 3
   end
-  object DBEndereco: TDBEdit [21]
+  object DBEndereco: TDBEdit [20]
     Left = 80
     Top = 253
     Width = 305
     Height = 21
     DataField = 'ENDERECO'
     DataSource = DataSource1
-    TabOrder = 8
+    TabOrder = 5
   end
-  object DBCep: TDBEdit [22]
-    Left = 296
-    Top = 286
-    Width = 97
-    Height = 21
-    DataField = 'CEP'
-    DataSource = DataSource1
-    TabOrder = 9
-  end
-  object DBTelefone: TDBEdit [23]
-    Left = 312
-    Top = 187
-    Width = 121
-    Height = 21
-    DataField = 'TELEFONE'
-    DataSource = DataSource1
-    TabOrder = 10
-  end
-  object DBCidade: TDBEdit [24]
+  object DBCidade: TDBEdit [21]
     Left = 80
     Top = 318
     Width = 73
     Height = 21
     DataField = 'CIDADE'
     DataSource = DataSource1
-    TabOrder = 11
+    TabOrder = 9
   end
-  object DBBairro: TDBEdit [25]
+  object DBBairro: TDBEdit [22]
     Left = 80
     Top = 286
     Width = 161
     Height = 21
     DataField = 'BAIRRO'
     DataSource = DataSource1
-    TabOrder = 12
+    TabOrder = 7
   end
-  object DBNumero: TDBEdit [26]
+  object DBNumero: TDBEdit [23]
     Left = 472
     Top = 253
     Width = 121
     Height = 21
     DataField = 'NUMERO'
     DataSource = DataSource1
-    TabOrder = 13
+    TabOrder = 6
   end
-  object DBLookupComboBox1: TDBLookupComboBox [27]
+  object DBLookupComboBox1: TDBLookupComboBox [24]
     Left = 159
     Top = 318
     Width = 418
     Height = 21
-    TabOrder = 14
+    DataField = 'CIDADE'
+    DataSource = DataSource1
+    KeyField = 'CODIGO'
+    ListField = 'NOME'
+    ListSource = SourceCidades
+    TabOrder = 10
   end
-  object DateTimePicker1: TDateTimePicker [28]
+  object DateTimePicker1: TDateTimePicker [25]
     Left = 207
     Top = 88
     Width = 186
     Height = 21
     Date = 42255.888532592590000000
     Time = 42255.888532592590000000
+    TabOrder = 0
+  end
+  object MaskEdit1: TMaskEdit [26]
+    Left = 80
+    Top = 156
+    Width = 191
+    Height = 21
+    TabOrder = 2
+    Text = ''
+  end
+  object MaskEdit2: TMaskEdit [27]
+    Left = 80
+    Top = 187
+    Width = 133
+    Height = 21
+    TabOrder = 13
+    Text = 'MaskEdit2'
+  end
+  object MaskEdit3: TMaskEdit [28]
+    Left = 312
+    Top = 187
+    Width = 135
+    Height = 21
+    TabOrder = 14
+    Text = 'MaskEdit3'
+  end
+  object MaskEdit4: TMaskEdit [29]
+    Left = 294
+    Top = 286
+    Width = 97
+    Height = 21
     TabOrder = 15
+    Text = 'MaskEdit4'
   end
   inherited FDQuery1: TFDQuery
     BeforePost = FDQuery1BeforePost
@@ -257,5 +268,68 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
   inherited DataSource1: TDataSource
     DataSet = FDQuery1
     Left = 576
+  end
+  object Q2: TFDQuery [33]
+    Connection = FrmPrincipal.FDConnection
+    Transaction = FDTransaction1
+    Left = 704
+    Top = 144
+  end
+  inherited FDUpdateSQL2: TFDUpdateSQL
+    InsertSQL.Strings = (
+      'INSERT INTO CLIFOR'
+      '(CODIGO, RAZAO, CNPJ, DATA_NASCIMENTO, CELULAR, '
+      '  TELEFONE, RG, EMAIL, ENDERECO, NUMERO, '
+      '  COMPLEMENTO, BAIRRO, CEP, ESTADO, CIDADE)'
+      
+        'VALUES (:NEW_CODIGO, :NEW_RAZAO, :NEW_CNPJ, :NEW_DATA_NASCIMENTO' +
+        ', :NEW_CELULAR, '
+      
+        '  :NEW_TELEFONE, :NEW_RG, :NEW_EMAIL, :NEW_ENDERECO, :NEW_NUMERO' +
+        ', '
+      
+        '  :NEW_COMPLEMENTO, :NEW_BAIRRO, :NEW_CEP, :NEW_ESTADO, :NEW_CID' +
+        'ADE)'
+      'RETURNING CODIGO')
+    ModifySQL.Strings = (
+      'UPDATE CLIFOR'
+      'SET CODIGO = :NEW_CODIGO, RAZAO = :NEW_RAZAO, CNPJ = :NEW_CNPJ, '
+      
+        '  DATA_NASCIMENTO = :NEW_DATA_NASCIMENTO, CELULAR = :NEW_CELULAR' +
+        ', '
+      '  TELEFONE = :NEW_TELEFONE, RG = :NEW_RG, EMAIL = :NEW_EMAIL, '
+      
+        '  ENDERECO = :NEW_ENDERECO, NUMERO = :NEW_NUMERO, COMPLEMENTO = ' +
+        ':NEW_COMPLEMENTO, '
+      '  BAIRRO = :NEW_BAIRRO, CEP = :NEW_CEP, ESTADO = :NEW_ESTADO, '
+      '  CIDADE = :NEW_CIDADE'
+      'WHERE CODIGO = :OLD_CODIGO'
+      'RETURNING CODIGO')
+    DeleteSQL.Strings = (
+      'DELETE FROM CLIFOR'
+      'WHERE CODIGO = :OLD_CODIGO')
+    FetchRowSQL.Strings = (
+      
+        'SELECT CODIGO, RAZAO, CNPJ, DATA_NASCIMENTO, CELULAR, TELEFONE, ' +
+        'RG, '
+      '  EMAIL, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CEP, ESTADO, '
+      '  CIDADE'
+      'FROM CLIFOR'
+      'WHERE CODIGO = :CODIGO')
+    Left = 144
+    Top = 352
+  end
+  object Cidades: TFDQuery
+    Connection = FrmPrincipal.FDConnection
+    SQL.Strings = (
+      'Select codigo, nome from cidades'
+      'order by nome')
+    Left = 384
+    Top = 352
+  end
+  object SourceCidades: TDataSource
+    DataSet = Cidades
+    Left = 440
+    Top = 352
   end
 end

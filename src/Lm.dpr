@@ -8,7 +8,9 @@ uses
   CustomEditor in 'FormPadrao\CustomEditor.pas' {FrmCustomEditor},
   CadastroClientesGrid in 'Cadastros\CadastroClientesGrid.pas' {FrmCadastroClientesGrid},
   CadastroClientesEditor in 'Cadastros\CadastroClientesEditor.pas' {FrmCadastroClientesEditor},
-  Carregamento in 'Utilitarios\Carregamento.pas' {FrmCarregamento};
+  Carregamento in 'Utilitarios\Carregamento.pas' {FrmCarregamento},
+  CadastroFuncionariosGrid in 'Cadastros\CadastroFuncionariosGrid.pas' {FrmCadastroFuncionariosGrid},
+  CadastroFuncionariosEditor in 'Cadastros\CadastroFuncionariosEditor.pas' {FrmCadastroFuncionariosEditor};
 
 {$R *.res}
 
@@ -17,6 +19,8 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TFrmCarregamento, FrmCarregamento);
+  Application.CreateForm(TFrmCadastroFuncionariosGrid, FrmCadastroFuncionariosGrid);
+  Application.CreateForm(TFrmCadastroFuncionariosEditor, FrmCadastroFuncionariosEditor);
   //Application.CreateForm(TFrmCustomGrid, FrmCustomGrid);
 //Application.CreateForm(TFrmCustomEditor, FrmCustomEditor);
 //Application.CreateForm(TFrmCadastroClientesGrid, FrmCadastroClientesGrid);

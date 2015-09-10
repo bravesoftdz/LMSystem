@@ -49,7 +49,6 @@ var F : TFrmCustomEditor;
 begin
   F := FormEditor.Create(Self);
   try
-    F.FDQuery1.ParamByName('codigo').AsInteger := FDQuery1.FieldByName('codigo').AsInteger;
     F.FDQuery1.Open;
     F.FDQuery1.Edit;
     F.ShowModal;
@@ -72,6 +71,7 @@ begin
   try
     F.FDQuery1.Open;
     F.FDQuery1.Insert;
+    F.FDQuery1.FieldByName('codigo').AsInteger := 0;
     F.ShowModal;
   finally
     F.Free;

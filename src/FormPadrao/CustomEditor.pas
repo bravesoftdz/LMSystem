@@ -18,6 +18,7 @@ type
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
     FDTransaction1: TFDTransaction;
+    FDUpdateSQL2: TFDUpdateSQL;
     procedure BtnOkClick(Sender: TObject);
     procedure BtnCalcelClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
