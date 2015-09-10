@@ -3,7 +3,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
   ClientHeight = 403
   ClientWidth = 606
   ExplicitWidth = 622
-  ExplicitHeight = 442
+  ExplicitHeight = 438
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -106,10 +106,10 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
   inherited Panel2: TPanel
     Width = 606
     TabOrder = 11
-    ExplicitWidth = 606
+    ExplicitWidth = 615
     inherited PnlControl: TPanel
       Left = 356
-      ExplicitLeft = 356
+      ExplicitLeft = 365
     end
   end
   object DBCodigo: TDBEdit [15]
@@ -262,26 +262,62 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     UpdateOptions.KeyFields = 'codigo'
     UpdateOptions.AutoIncFields = 'codigo'
     SQL.Strings = (
-      'select * from clifor'
-      'where codigo=:codigo')
+      'select * from clifor')
     Left = 520
-    ParamData = <
-      item
-        Name = 'CODIGO'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = Null
-      end>
   end
   inherited DataSource1: TDataSource
     DataSet = FDQuery1
     Left = 576
   end
-  object Q2: TFDQuery
+  object Q2: TFDQuery [33]
     Connection = FrmPrincipal.FDConnection
     Transaction = FDTransaction1
     Left = 704
     Top = 144
+  end
+  inherited FDUpdateSQL2: TFDUpdateSQL
+    InsertSQL.Strings = (
+      'INSERT INTO CLIFOR'
+      '(CODIGO, RAZAO, CNPJ, DATA_NASCIMENTO, CELULAR, '
+      '  TELEFONE, RG, EMAIL, ENDERECO, NUMERO, '
+      '  COMPLEMENTO, BAIRRO, CEP, ESTADO, CIDADE)'
+      
+        'VALUES (:NEW_CODIGO, :NEW_RAZAO, :NEW_CNPJ, :NEW_DATA_NASCIMENTO' +
+        ', :NEW_CELULAR, '
+      
+        '  :NEW_TELEFONE, :NEW_RG, :NEW_EMAIL, :NEW_ENDERECO, :NEW_NUMERO' +
+        ', '
+      
+        '  :NEW_COMPLEMENTO, :NEW_BAIRRO, :NEW_CEP, :NEW_ESTADO, :NEW_CID' +
+        'ADE)'
+      'RETURNING CODIGO')
+    ModifySQL.Strings = (
+      'UPDATE CLIFOR'
+      'SET CODIGO = :NEW_CODIGO, RAZAO = :NEW_RAZAO, CNPJ = :NEW_CNPJ, '
+      
+        '  DATA_NASCIMENTO = :NEW_DATA_NASCIMENTO, CELULAR = :NEW_CELULAR' +
+        ', '
+      '  TELEFONE = :NEW_TELEFONE, RG = :NEW_RG, EMAIL = :NEW_EMAIL, '
+      
+        '  ENDERECO = :NEW_ENDERECO, NUMERO = :NEW_NUMERO, COMPLEMENTO = ' +
+        ':NEW_COMPLEMENTO, '
+      '  BAIRRO = :NEW_BAIRRO, CEP = :NEW_CEP, ESTADO = :NEW_ESTADO, '
+      '  CIDADE = :NEW_CIDADE'
+      'WHERE CODIGO = :OLD_CODIGO'
+      'RETURNING CODIGO')
+    DeleteSQL.Strings = (
+      'DELETE FROM CLIFOR'
+      'WHERE CODIGO = :OLD_CODIGO')
+    FetchRowSQL.Strings = (
+      
+        'SELECT CODIGO, RAZAO, CNPJ, DATA_NASCIMENTO, CELULAR, TELEFONE, ' +
+        'RG, '
+      '  EMAIL, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CEP, ESTADO, '
+      '  CIDADE'
+      'FROM CLIFOR'
+      'WHERE CODIGO = :CODIGO')
+    Left = 144
+    Top = 352
   end
   object Cidades: TFDQuery
     Connection = FrmPrincipal.FDConnection
