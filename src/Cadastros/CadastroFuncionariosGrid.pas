@@ -12,6 +12,7 @@ uses
 
 type
   TFrmCadastroFuncionariosGrid = class(TFrmCustomGrid)
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,5 +25,14 @@ var
 implementation
 
 {$R *.dfm}
+
+uses CadastroFuncionariosEditor;
+
+procedure TFrmCadastroFuncionariosGrid.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FormEditor := TFrmCadastroFuncionariosEditor;
+  FDQuery1.Open;
+end;
 
 end.

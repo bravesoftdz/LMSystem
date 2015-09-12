@@ -1,9 +1,9 @@
 inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
   Caption = 'FrmCadastroClientesEditor'
   ClientHeight = 403
-  ClientWidth = 606
-  ExplicitWidth = 622
-  ExplicitHeight = 442
+  ClientWidth = 603
+  ExplicitWidth = 619
+  ExplicitHeight = 438
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -84,15 +84,15 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     Caption = 'N'#250'mero:'
   end
   object Label12: TLabel [11]
-    Left = 260
+    Left = 216
     Top = 190
     Width = 46
     Height = 13
     Caption = 'Telefone:'
   end
   object Label13: TLabel [12]
-    Left = 386
-    Top = 159
+    Left = 416
+    Top = 190
     Width = 17
     Height = 13
     Caption = 'Rg:'
@@ -103,17 +103,24 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     Width = 23
     Height = 22
   end
+  object Label14: TLabel [14]
+    Left = 297
+    Top = 159
+    Width = 26
+    Height = 13
+    Caption = 'Cnpj:'
+  end
   inherited Panel2: TPanel
-    Width = 606
+    Width = 603
     TabOrder = 11
     ExplicitWidth = 606
     inherited PnlControl: TPanel
-      Left = 356
+      Left = 353
       ExplicitLeft = 356
     end
   end
-  object DBCodigo: TDBEdit [15]
-    Left = 78
+  object DBCodigo: TDBEdit [16]
+    Left = 80
     Top = 88
     Width = 97
     Height = 21
@@ -129,7 +136,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     ParentFont = False
     TabOrder = 12
   end
-  object DBEmail: TDBEdit [16]
+  object DBEmail: TDBEdit [17]
     Left = 80
     Top = 220
     Width = 513
@@ -138,7 +145,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 4
   end
-  object DBComplemento: TDBEdit [17]
+  object DBComplemento: TDBEdit [18]
     Left = 472
     Top = 286
     Width = 121
@@ -147,7 +154,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 8
   end
-  object DBNome: TDBEdit [18]
+  object DBNome: TDBEdit [19]
     Left = 80
     Top = 123
     Width = 513
@@ -156,16 +163,16 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 1
   end
-  object DBRg: TDBEdit [19]
-    Left = 408
-    Top = 156
-    Width = 185
+  object DBRg: TDBEdit [20]
+    Left = 438
+    Top = 187
+    Width = 155
     Height = 21
     DataField = 'RG'
     DataSource = DataSource1
     TabOrder = 3
   end
-  object DBEndereco: TDBEdit [20]
+  object DBEndereco: TDBEdit [21]
     Left = 80
     Top = 253
     Width = 305
@@ -174,7 +181,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 5
   end
-  object DBCidade: TDBEdit [21]
+  object DBCidade: TDBEdit [22]
     Left = 80
     Top = 318
     Width = 73
@@ -183,7 +190,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 9
   end
-  object DBBairro: TDBEdit [22]
+  object DBBairro: TDBEdit [23]
     Left = 80
     Top = 286
     Width = 161
@@ -192,7 +199,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 7
   end
-  object DBNumero: TDBEdit [23]
+  object DBNumero: TDBEdit [24]
     Left = 472
     Top = 253
     Width = 121
@@ -201,7 +208,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     DataSource = DataSource1
     TabOrder = 6
   end
-  object DBLookupComboBox1: TDBLookupComboBox [24]
+  object DBLookupComboBox1: TDBLookupComboBox [25]
     Left = 159
     Top = 318
     Width = 418
@@ -213,7 +220,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     ListSource = SourceCidades
     TabOrder = 10
   end
-  object DateTimePicker1: TDateTimePicker [25]
+  object DateTimePicker1: TDateTimePicker [26]
     Left = 207
     Top = 88
     Width = 186
@@ -222,7 +229,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     Time = 42255.888532592590000000
     TabOrder = 0
   end
-  object MaskEdit1: TMaskEdit [26]
+  object MaskEdit1: TMaskEdit [27]
     Left = 80
     Top = 156
     Width = 191
@@ -230,7 +237,7 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     TabOrder = 2
     Text = ''
   end
-  object MaskEdit2: TMaskEdit [27]
+  object MaskEdit2: TMaskEdit [28]
     Left = 80
     Top = 187
     Width = 133
@@ -238,21 +245,29 @@ inherited FrmCadastroClientesEditor: TFrmCadastroClientesEditor
     TabOrder = 13
     Text = 'MaskEdit2'
   end
-  object MaskEdit3: TMaskEdit [28]
-    Left = 312
+  object MaskEdit3: TMaskEdit [29]
+    Left = 268
     Top = 187
     Width = 135
     Height = 21
     TabOrder = 14
     Text = 'MaskEdit3'
   end
-  object MaskEdit4: TMaskEdit [29]
+  object MaskEdit4: TMaskEdit [30]
     Left = 294
     Top = 286
     Width = 97
     Height = 21
     TabOrder = 15
     Text = 'MaskEdit4'
+  end
+  object MaskEdit5: TMaskEdit [31]
+    Left = 329
+    Top = 156
+    Width = 205
+    Height = 21
+    TabOrder = 16
+    Text = 'MaskEdit5'
   end
   inherited FDQuery1: TFDQuery
     BeforePost = FDQuery1BeforePost

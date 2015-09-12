@@ -44,6 +44,8 @@ type
     MaskEdit2: TMaskEdit;
     MaskEdit3: TMaskEdit;
     MaskEdit4: TMaskEdit;
+    Label14: TLabel;
+    MaskEdit5: TMaskEdit;
     procedure FDQuery1BeforePost(DataSet: TDataSet);
     procedure FormShow(Sender: TObject);
   private
@@ -77,7 +79,7 @@ begin
    if vString<>'' then
      result:=vString
    else
-     result:='             ';
+     result:='   ';
 end;
 
 procedure TFrmCadastroClientesEditor.FDQuery1BeforePost(DataSet: TDataSet);
@@ -90,7 +92,8 @@ begin
     FDQuery1.FieldByName('codigo').AsInteger := Q2.FieldByName('gen_id').AsInteger;
     Q2.Close;
   end;
-  FDQuery1.FieldByName('cnpj').AsString := SoNumeros(MaskEdit1.Text);
+  FDQuery1.FieldByName('cpf').AsString := SoNumeros(MaskEdit1.Text);
+  FDQuery1.FieldByName('cnpj').AsString := SoNumeros(MaskEdit5.Text);
   FDQuery1.FieldByName('telefone').AsString := SoNumeros(MaskEdit3.Text);
   FDQuery1.FieldByName('celular').AsString := SoNumeros(MaskEdit2.Text);
   FDQuery1.FieldByName('cep').AsString := SoNumeros(MaskEdit4.Text);
@@ -102,14 +105,16 @@ procedure TFrmCadastroClientesEditor.FormShow(Sender: TObject);
 begin
   inherited;
   Cidades.Open;
-  MaskEdit1.Text := FDQuery1.FieldByName('cnpj').AsString;
+  MaskEdit1.Text := FDQuery1.FieldByName('cpf').AsString;
+  MaskEdit5.Text := FDQuery1.FieldByName('cnpj').AsString;
   MaskEdit2.Text := FDQuery1.FieldByName('celular').AsString;
   MaskEdit3.Text := FDQuery1.FieldByName('telefone').AsString;
   MaskEdit4.Text := FDQuery1.FieldByName('cep').AsString;
   MaskEdit1.EditMask := '000.000.000-00';
   MaskEdit2.EditMask := '(00) 0000-0000';
   MaskEdit3.EditMask := '(00) 0000-0000';
-  MaskEdit4.EditMask := '00700-000';
+  MaskEdit4.EditMask := '00000-000';
+  MaskEdit5.EditMask := '000.000.000/0000-00';
   if FDQuery1.FieldByName('Data_Nascimento').AsString <> '' then
     DateTimePicker1.Date := FDQuery1.FieldByName('Data_Nascimento').AsDateTime
   else if FDQuery1.FieldByName('Data_Nascimento').AsString = '' then

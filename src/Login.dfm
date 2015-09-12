@@ -2,8 +2,8 @@ object FrmLogin: TFrmLogin
   Left = 0
   Top = 0
   Caption = 'Login'
-  ClientHeight = 152
-  ClientWidth = 234
+  ClientHeight = 147
+  ClientWidth = 227
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -46,19 +46,38 @@ object FrmLogin: TFrmLogin
     Caption = '&Cancelar'
     OnClick = SpeedButton2Click
   end
-  object EdtUsuario: TEdit
-    Left = 70
-    Top = 29
-    Width = 121
-    Height = 21
-    TabOrder = 0
-  end
   object EdtSenha: TEdit
     Left = 69
     Top = 63
     Width = 121
     Height = 21
     PasswordChar = '*'
+    TabOrder = 0
+  end
+  object ComboBox1: TComboBox
+    Left = 69
+    Top = 28
+    Width = 145
+    Height = 21
     TabOrder = 1
+  end
+  object FDQuery1: TFDQuery
+    Connection = FrmPrincipal.FDConnection
+    SQL.Strings = (
+      'select * from usuarios '
+      'where tem_usuario = 1'
+      'order by usuario')
+    Left = 272
+    Top = 104
+  end
+  object IdEncoderMIME1: TIdEncoderMIME
+    FillChar = '='
+    Left = 272
+    Top = 56
+  end
+  object Q2: TFDQuery
+    Connection = FrmPrincipal.FDConnection
+    Left = 272
+    Top = 152
   end
 end
