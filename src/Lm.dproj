@@ -135,6 +135,31 @@
             <Form>FrmCadastroFuncionariosEditor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Global.pas"/>
+        <DCCReference Include="Cadastros\ProdutosGrid.pas">
+            <Form>FrmProdutosGrid</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Cadastros\ProdutosEditor.pas">
+            <Form>FrmProdutosEditor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="FormPadrao\CustomInterfaceGrid.pas">
+            <Form>FrmCustomInterfaceGrid</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Operacional\Estoque\LocaisEstoqueGrid.pas">
+            <Form>FrmLocaisEstoqueGrid</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Operacional\Estoque\LocaisEstoqueEditor.pas">
+            <Form>FrmLocaisEstoqueEditor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Operacional\Estoque\ProdutosEstoque.pas">
+            <Form>FrmProdutosEstoque</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -163,7 +188,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="2">
-                <DeployFile LocalName="Win32\Debug\Lm.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="D:\Bin\LMSystem\Lm.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Lm.exe</RemoteName>
                         <Overwrite>true</Overwrite>

@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses Principal;
+uses Principal, Global;
 
 {$R *.dfm}
 
@@ -49,6 +49,7 @@ var F : TFrmCustomEditor;
 begin
   F := FormEditor.Create(Self);
   try
+    F.FDQuery1.ParamByName('codigo').AsInteger := FDQuery1.FieldByName('codigo').AsInteger;
     F.FDQuery1.Open;
     F.FDQuery1.Edit;
     F.ShowModal;

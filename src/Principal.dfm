@@ -10,7 +10,7 @@ object FrmPrincipal: TFrmPrincipal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = MainMenu1
+  Menu = mmuPrincipal
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
@@ -38,27 +38,26 @@ object FrmPrincipal: TFrmPrincipal
     Left = 24
     Top = 176
   end
-  object MainMenu1: TMainMenu
+  object mmuPrincipal: TMainMenu
     Left = 24
     Top = 8
-    object Arquivo1: TMenuItem
+    object MnuCadastro: TMenuItem
       Caption = 'Cadastros'
-      object ClientesFornecedores1: TMenuItem
-        Caption = 'Clientes Fornecedores'
-        OnClick = ClientesFornecedores1Click
-      end
     end
-    object Operacional1: TMenuItem
+    object MnuOperacional: TMenuItem
       Caption = 'Operacional'
     end
-    object Finceiro1: TMenuItem
+    object MnuFinanceiro: TMenuItem
       Caption = 'Finceiro'
     end
-    object Utilitarios1: TMenuItem
+    object MnuUtilitarios: TMenuItem
       Caption = 'Utilit'#225'rios'
     end
-    object Configuraes1: TMenuItem
+    object MnuFerramentas: TMenuItem
       Caption = 'Ferramentas'
+    end
+    object MnuAjuda: TMenuItem
+      Caption = 'Ajuda'
     end
   end
 end

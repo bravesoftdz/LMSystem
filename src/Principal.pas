@@ -14,20 +14,22 @@ type
   TFrmPrincipal = class(TForm)
     FDConnection: TFDConnection;
     StatusBar1: TStatusBar;
-    MainMenu1: TMainMenu;
-    Arquivo1: TMenuItem;
-    Operacional1: TMenuItem;
-    Finceiro1: TMenuItem;
-    Utilitarios1: TMenuItem;
-    Configuraes1: TMenuItem;
-    ClientesFornecedores1: TMenuItem;
+    mmuPrincipal: TMainMenu;
+    MnuCadastro: TMenuItem;
+    MnuOperacional: TMenuItem;
+    MnuFinanceiro: TMenuItem;
+    MnuUtilitarios: TMenuItem;
+    MnuFerramentas: TMenuItem;
+    MnuAjuda: TMenuItem;
+    procedure ItemDoMenuClick(Sender: TObject);
     procedure FDConnectionAfterConnect(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ClientesFornecedores1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    FormulariosRegistrados: TList;
+    procedure CriarMenus;
   end;
 
 var
@@ -35,19 +37,76 @@ var
 
 implementation
 
-uses Login, CadastroClientesGrid;
+uses Login, CadastroClientesGrid, Global;
 
 {$R *.dfm}
 
-procedure TFrmPrincipal.ClientesFornecedores1Click(Sender: TObject);
-var F : TFrmCadastroClientesGrid;
-begin
-  F := TFrmCadastroClientesGrid.Create(Self);
-  try
-    F.ShowModal;
-  finally
-    F.Free;
+type
+  TMenuItemReg = class(TMenuItem)
+  private
+    FRegFormulario: TRegFormulario;
+  public
+    property RegFormulario: TRegFormulario read FRegFormulario write FRegFormulario;
   end;
+
+procedure TfrmPrincipal.CriarMenus;
+  procedure CriarMenusPorGrupo(Menu: TMenuItem; Grupo: String);
+  var
+    I: Integer;
+    List: TStringList;
+    Item: TMenuItemReg;
+  begin
+    List := TStringList.Create;
+    try
+      for I := 0 to lstFormularios.Count-1 do
+      begin
+        if lstFormularios[I].MenuGrupo = Grupo then
+        begin
+          //??? aqui falta avaliar se o usuario logado tem permissão
+          List.AddObject(lstFormularios[I].MenuTitulo, lstFormularios[I]);
+        end;
+      end;
+      List.Sort;
+      Menu.Clear;
+      for I := 0 to List.Count-1 do
+      begin
+        Item := TMenuItemReg.Create(Self);
+        Item.OnClick := ItemDoMenuClick;
+        Item.Caption := List[I];
+        Item.RegFormulario := TRegFormulario(List.Objects[I]);
+        Menu.Add(Item);
+      end;
+    finally
+      List.Free;
+    end;
+  end;
+begin
+  CriarMenusPorGrupo(MnuCadastro, MENU_CADASTROS);
+  CriarMenusPorGrupo(MnuOperacional, MENU_OPERACIONAL);
+  CriarMenusPorGrupo(MnuFinanceiro, MENU_FINANCEIRO);
+  CriarMenusPorGrupo(MnuUtilitarios, MENU_UTILITARIOS);
+  CriarMenusPorGrupo(MnuFerramentas, MENU_FERRAMENTAS);
+  CriarMenusPorGrupo(mnuAjuda, MENU_AJUDA);
+end;
+
+
+procedure TFrmPrincipal.ItemDoMenuClick(Sender: TObject);
+var
+  F: TForm;
+  I: Integer;
+  R: TRegFormulario;
+begin
+  R := TMenuItemReg(Sender).RegFormulario;
+  for I := 0 to ComponentCount-1 do
+  begin
+    if Components[I].ClassName = R.Classe.ClassName then
+    begin
+      TForm(Components[I]).Free; // nao tem chance de ficar pendurado
+    end;
+  end;
+  F := TMenuItemReg(Sender).RegFormulario.Classe.Create(Self);
+  F.FormStyle := fsNormal;
+  F.Show;
 end;
 
 procedure TFrmPrincipal.FDConnectionAfterConnect(Sender: TObject);
@@ -57,7 +116,7 @@ begin
   try
     F.ShowModal;
     if F.ModalResult = mrOk then
-      Visible := True
+      CriarMenus
     else Application.Terminate;
   finally
     F.Free
@@ -69,4 +128,6 @@ begin
   FDConnection.Connected := True;
 end;
 
+initialization
+  RegistraFormulario(TFrmPrincipal, MENU_CADASTROS, 'teste');
 end.

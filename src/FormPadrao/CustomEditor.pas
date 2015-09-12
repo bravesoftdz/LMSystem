@@ -18,7 +18,6 @@ type
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
     FDTransaction1: TFDTransaction;
-    FDUpdateSQL2: TFDUpdateSQL;
     procedure BtnOkClick(Sender: TObject);
     procedure BtnCalcelClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -40,7 +39,8 @@ uses Principal;
 
 procedure TFrmCustomEditor.BtnCalcelClick(Sender: TObject);
 begin
-  FDQuery1.Cancel;
+  if FDQuery1.State in [dsEdit, dsInsert] then
+    FDQuery1.Cancel;
   Close;
 end;
 
